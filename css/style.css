@@ -3,6 +3,8 @@
     padding: 0;
     outline: 0;
     box-sizing: border-box;
+    transition: 300ms;
+    transition-property: background,color;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -11,13 +13,23 @@ html,body{
     overflow: hidden;
 }
 
+:root{
+    --color-principal: #6272a4;
+    --bg-color: #f8f8f2;
+}
+
+body.dark-mode{
+    --color-principal: #282a36;
+    --bg-color: #282a36;
+}
+
 .container{
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f8f8f2;
+    background-color: var(--bg-color)
 }
 
 /* Animaçoes */
@@ -60,7 +72,7 @@ html,body{
     height: 65px;
     margin: 10px auto;
     border-radius: 50%;
-    border: 10px solid #6272a4;
+    border: 10px solid var(--color-principal);
     border-top-color: transparent;
     animation: loading 500ms linear infinite;
     display: none;
@@ -98,7 +110,7 @@ html,body{
 
 .form h1 > i{
     margin-left: 10px;
-    color: #6272a4;
+    color: var(--color-principal)
 }
 
 .input{
@@ -113,7 +125,7 @@ html,body{
     top: 50%;
     transform: translate(-50%,-50%);
     left: 25px;
-    color: #6272a4;
+    color: var(--color-principal);
 }
 
 #input-email,#input-password{
@@ -131,7 +143,7 @@ html,body{
 }
 
 #input-email:focus,#input-password:focus{
-    box-shadow: 0px 0px 7px -2px #6272a4;
+    box-shadow: 0px 0px 7px -2px var(--color-principal);
 }
 
 #input-submit{
@@ -144,22 +156,56 @@ html,body{
     font-weight: 600;
     cursor: pointer;
     color: white;
-    background-color: #6272a4;
+    background-color: var(--color-principal);
     transition: 300ms background;
 }
 
 #input-submit:hover{
-    border: 1px solid #6272a4;
-    color: #6272a4;
+    border: 1px solid var(--color-principal);
+    color: var(--color-principal);
     background-color: transparent;
 }
 
 #forgot-password{
-    color: #6272a4;
+    color: var(--color-principal);
     font-weight: 500;
     font-size: 0.9rem;
     text-decoration: none;
     text-align: center;
     display: block;
 }
+
 /* Fim do formulario */
+
+.switch{
+    width: 150px;
+    height: 50px;
+    position: absolute;
+    top: 85%;
+    left: 10%;
+    cursor: pointer;
+    border-radius: 30px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    background-color: white;
+}
+
+#check{
+    display: none;
+}
+
+.slider{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--color-principal);
+    position: relative;
+    top: 0;
+    left: 0;
+    transition: 300ms left;
+}
+
+#check:checked + .slider{
+    left: calc(100% - 50px + 1px);
+    top: -1px;
+}

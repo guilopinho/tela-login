@@ -8,6 +8,7 @@
 
 html,body{
     height: 100%;
+    overflow: hidden;
 }
 
 .container{
@@ -19,6 +20,64 @@ html,body{
     background-color: #f8f8f2;
 }
 
+/* Animaçoes */
+
+@keyframes loading{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes fadeOut{
+    0%{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+
+    100%{
+        opacity: 0;
+        transform: translateY(100%);
+    }
+}
+
+.loading{
+    width: 65px;
+    height: 65px;
+    margin: 10px auto;
+    border-radius: 50%;
+    border: 10px solid #6272a4;
+    border-top-color: transparent;
+    animation: loading 500ms linear infinite;
+    display: none;
+}
+
+.fade-in{
+    animation: fadeIn  500ms 500ms ease-in-out both;
+}
+
+.fade-out{
+    animation: fadeOut 500ms ease-in-out both;
+}
+
+/* Fim das animaçoes */
+
+/* Formulario */
+
 .form{
     width: 100%;
     max-width: 500px;
@@ -26,6 +85,7 @@ html,body{
     border-radius: 5px;
     background-color: white;
     box-shadow: 0px 0px 7px -2px #ccc;
+    opacity: 0;
 }
 
 .form h1{
@@ -102,3 +162,4 @@ html,body{
     text-align: center;
     display: block;
 }
+/* Fim do formulario */

@@ -1,3 +1,3 @@
-# tela-login
-Tela de Login usando html, css e javascript
+# Tela de Login Animada
+
 Estudo de animações com css e javascript
